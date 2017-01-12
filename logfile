@@ -4,3 +4,7 @@ LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
 FATAL:  database "danielstclair" does not exist
 FATAL:  database "danielstclair" does not exist
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down

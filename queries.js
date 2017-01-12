@@ -28,8 +28,10 @@ function getAllTodos(req, res, next) {
 
 function getSingleTodo(req, res, next) {
   var todoID = parseInt(req.params.id);
-  db.one('select * from todos where id = $1', todoID)
+  // console.log(todoID);
+  db.one('select * from todos where id=$1', [todoID])
     .then(function (data) {
+      console.log(data);
       res.status(200)
         .json({
           status: 'success',
@@ -46,7 +48,7 @@ function createTodo(req, res, next) {
   const completed = (req.body.completed === 'true');
   const { task } = req.body;
   db.none('insert into todos(task, completed)' + ' values(${task}, ${completed})', { task, completed })
-    .then(() => {
+    .then((data) => {
       res.status(200)
         .json({
           status: 'success',
